@@ -1,0 +1,2 @@
+class Women < ApplicationRecord
+end

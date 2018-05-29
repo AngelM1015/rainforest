@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :women
+  resources :men
   resources :our_services
   resources :abouts
   resources :homes
