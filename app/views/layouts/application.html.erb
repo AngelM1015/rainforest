@@ -6,48 +6,108 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
   </head>
 
   <body>
+  </style>
          <div class="nav-bar">
-           <%= image_tag 'Rainforest-Logo', :size => '140x40' %>
            <div id="search">
-             <%= form_tag(products_path, :method => "get", id: "search-form") do %>
-             <%= text_field_tag :search, params[:search], placeholder: "" %>
-             <!-- <%= submit_tag "Search",class: "btn btn-default"%> -->
-             <% end %>
+            <div class="container">
+  <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+           <span id="leaf"><i class="fas fa-leaf" fa-lg></i><em>Rainforest</em></span>
            </div>
            <div>
              <p class="active">
                <span class="left">
-                 <%=link_to "HOME", products_path %>
-                 <%=link_to "ABOUT", abouts_path %>
-                 <%=link_to "OUR SERVICES", our_services_path %>
+                 <span><%=link_to "HOME", products_path %> </span>
+                 <span><%=link_to "ABOUT", abouts_path %></span>
+                 <span><%=link_to "OUR SERVICES", our_services_path %></span>
                </span>
                <span class="right">
-                 <%=link_to"MENS", men_path %>
-                 <%=link_to"WOMENS", women_path %>
-                 <%=link_to"GEAR" %>
+                 <span><%=link_to"MENS", men_path %></span>
+                 <span><%=link_to"WOMENS", women_path %></span>
+                 <span><%=link_to"GEAR" %></span>
                </span>
                <span class="cart">
-                 <i class="fas fa-shopping-cart"></i>
-                 <a href="#">CONTACT</a>
+                 <span><%=link_to carts_path do %>
+                    <i class="fas fa-shopping-cart"></i>
+                  <% end %>
+                </span>
+                 <span><a href="#">CONTACT</a></span>
                </span>
              </p>
+
 
             </div>
          </div>
     <%= yield %>
+    <footer class="footer">
+               <span class="one">
+                <ul>
+                 <u><b><%=link_to "GET TO KNOW US", our_services_path %></b></u>
+                 <li stile="color:white"><%=link_to "Careers", our_services_path %></li>
+                 <li><%=link_to "Investor Relations", our_services_path %></li>
+                 <li><%=link_to "Rainforest Devices", our_services_path %></li>
+                 <li><%=link_to "About Rainforest", our_services_path %></li>
+               </ul>
+               </span>
+               <span class="two">
+                <ul>
+                 <u><b><%=link_to"MAKE MONEY WITH US" %></b></u>
+                 <li><%=link_to"Sell on Rainforest" %></li>
+                 <li><%=link_to"Become an Affiliate" %></li>
+                 <li><%=link_to"Sell your Services on Rainforest" %></li>
+                 <li><%=link_to"Advertise Your Products" %></li>
+               </ul>
+               </span>
+               <span class="three">
+                <ul>
+                 <u><b><%=link_to"RAINFOREST PAYMENT PRODUCTS" %></b></u>
+                 <li><%=link_to"Rainforest Rewards" %></li>
+                 <li><%=link_to"Rainforest Corporate Credit Line" %></li>
+                 <li><%=link_to"Shop with Points" %></li>
+                 <li><%=link_to"Reload Your Balance" %></li>
+               </ul>
+               </span>
+               <span class="four">
+                <ul>
+                 <u><b><%=link_to"LET US HELP YOU" %></b></u>
+                 <li><%=link_to"Your Account" %></li>
+                 <li><%=link_to"Your Orders" %></li>
+                 <li><%=link_to"Shipping Rates and Policies" %></li>
+                 <li><%=link_to"Help" %></li>
+               </ul>
+             </span>
+    </footer>
   </body>
 </html>
