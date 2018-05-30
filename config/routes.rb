@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gears
   resources :women
   resources :men
   resources :our_services

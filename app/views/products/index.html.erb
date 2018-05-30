@@ -1,32 +1,34 @@
 <h1>Products</h1>
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th colspan="3"></th>
+<% if params[:search].present? && @products.empty? %>
+  <h4>There are no products related to <%= params[:search] %>.</h4>
+ <% elsif params[:search].present? %>
+ <h4>Products</h4>
+ <table class="table">
+   <thead>
+     <tr>
+       <th>Pics</th>
+       <th>Name</th>
+       <th>Price</th>
+       <th colspan="3"></th>
+     </tr>
+   </thead>
 
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td>$<%= product.formatted_price %></td>
-        <td><%= link_to 'Show', product %></td>
-        <!-- <td><%= link_to 'Edit', edit_product_path(product) %></td> -->
-        <!-- <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-        <!-- <td><%= link_to 'Add To Cart', cart_items_path(cart_items: { product_id: product.id, quantity: 1}), method: :post %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br> -->
-<!-- <%= link_to 'New Product', new_product_path %> --> -->
+   <tbody>
+     <% @products.each do |product| %>
+     <tr>
+       <td><%= link_to(product) do %>
+       <%= image_tag product.image_url %> <br>
+      <% end %>
+      <td><%= link_to(product) do %>
+      <h3> <%= product.name %> </h3>
+     <% end %>
+         <td><h3>$<%= product.formatted_price %></h3></td>
+       <td><%= link_to 'Add To Cart', cart_items_path(cart_items: { product_id: product.id, quantity: 1}), method: :post %></td>
+     </tr>
+     <% end %>
+   </tbody>
+ </table>
+<% end %>
 <div id="men" class="banner">
     <%= link_to men_path do%>
      <%= image_tag '2.jpg' %>
@@ -38,7 +40,7 @@
      <% end %>
 </div>
 <div id="gear" class="banner">
-    <%= link_to men_path do%>
+    <%= link_to gears_path do%>
      <%= image_tag '3.jpg' %>
      <% end %>
 </div>

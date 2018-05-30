@@ -26,24 +26,27 @@
 
   <body>
   </style>
-         <div class="nav-bar">
-           <div id="search">
-            <div class="container">
-  <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+  <div class="nav-bar">
+    <div id="search">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container">
-                <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
+              <div class="input-group stylish-input-group">
+                <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+                <%= submit_tag "Search", :name => nil %>
+                <% end %>
+                <!-- <span class="input-group-addon"> -->
+                  <!-- <button type="submit"> -->
+                    <!-- <span class="glyphicon glyphicon-search"></span> -->
+                  <!-- </button> -->
+                <!-- </span> -->
+              </div>
             </div>
+          </div>
         </div>
-  </div>
-</div>
+      </div>
            <span id="leaf"><i class="fas fa-leaf" fa-lg></i><em>Rainforest</em></span>
            </div>
            <div>
@@ -56,7 +59,7 @@
                <span class="right">
                  <span><%=link_to"MENS", men_path %></span>
                  <span><%=link_to"WOMENS", women_path %></span>
-                 <span><%=link_to"GEAR" %></span>
+                 <span><%=link_to"GEAR",  gears_path  %></span>
                </span>
                <span class="cart">
                  <span><%=link_to carts_path do %>

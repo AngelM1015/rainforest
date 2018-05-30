@@ -4,7 +4,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = []
+    if params[:search].present?
+      @products = Product.search(params[:search]).order("created_at DESC")
+    end
   end
 
   # GET /products/1
@@ -21,6 +24,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
   end
+
 
   # POST /products
   # POST /products.json
@@ -55,7 +59,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy 
+    @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }

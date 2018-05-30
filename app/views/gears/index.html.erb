@@ -1,4 +1,4 @@
-<h1>WOMEN's Products</h1>
+<h1>GEAR Products</h1>
  <table class="table">
    <thead>
      <tr>
@@ -11,17 +11,16 @@
    </thead>
 
    <tbody>
-     <% @womens_shoes.each do |product| %>
+     <% @gear.each do |product| %>
      <tr>
-
-       <td><%= link_to(product) do %>
-       <%= image_tag product.image_url %> <br>
-      <% end %>
-      <td><%= link_to(product) do %>
-      <h3> <%= product.name %> </h3>
-     <% end %>
+        <td><%= link_to(product) do %>
+          <%= image_tag product.image_url %> <br>
+        <% end %>
+        <td><%= link_to(product) do %>
+          <h3> <%= product.name %> </h3>
+        <% end %>
        <!-- <%= product.description %> -->
-         <td><h3>$<%= product.formatted_price %></h3></td>
+        <td><h3>$<%= product.formatted_price %></h3></td>
        <!-- <%= link_to 'Show', product %></td> -->
        <!-- <td><%= link_to 'Edit', edit_product_path(product) %></td> -->
        <!-- <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
